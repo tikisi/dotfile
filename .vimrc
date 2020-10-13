@@ -1,5 +1,6 @@
 syntax on
 set number
+set title
 set fenc=utf-8
 
 " バックアップファイルを作らない
@@ -23,3 +24,8 @@ set smartcase
 
 "backspace
 set backspace=indent,eol,start
+
+" 全角スペースの背景を白に変更
+autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
+autocmd VimEnter * match FullWidthSpace /　/
+colorscheme desert
