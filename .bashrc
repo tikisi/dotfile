@@ -26,3 +26,5 @@ alias aizu='ssh -Y s1260138@sshgate.u-aizu.ac.jp'
 alias aidu='sftp -r s1260138@sshgate.u-aizu.ac.jp'
 export DISPLAY=localhost:0.0
 
+export GOPATH=/c/Users/faohf/msys2/go
+export GOROOT=/mingw64/lib/go
