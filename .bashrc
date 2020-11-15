@@ -9,6 +9,8 @@ alias ls='ls --color=auto -F'
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls'
+alias ks='ls'
+alias sl='ls'
 
 alias mv='mv -i'
 alias rm='rm -i'
