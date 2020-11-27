@@ -30,3 +30,6 @@ export DISPLAY=localhost:0.0
 
 export GOPATH=/c/Users/faohf/msys2/go
 export GOROOT=/mingw64/lib/go
+alias python='/usr/bin/python'
+
+alias tmux='rm -rf /tmp/tmux* && tmux'
