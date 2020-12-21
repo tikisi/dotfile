@@ -1,3 +1,10 @@
+# zsh-completions(補完機能)の設定
+if [ -e /usr/local/share/zsh-completions ]; then
+    fpath=(/usr/local/share/zsh-completions $fpath)
+fi
+autoload -U compinit
+compinit -u
+
 # git-promptの読み込み
 source ~/.zsh/git-prompt.sh
 
@@ -34,7 +41,14 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
+alias history='history 1'
+
 alias aizu='ssh -Y s1260138@sshgate.u-aizu.ac.jp'
 alias aidu='sftp -r s1260138@sshgate.u-aizu.ac.jp'
-export DISPLAY=localhost:0.0
 
+export JAVA_HOME=/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
