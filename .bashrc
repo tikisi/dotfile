@@ -33,3 +33,4 @@ export GOROOT=/mingw64/lib/go
 alias python='/usr/bin/python'
 
 alias tmux='rm -rf /tmp/tmux* && tmux'
+alias gnuplot='winpty gnuplot'
