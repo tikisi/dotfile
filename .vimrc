@@ -19,6 +19,7 @@ set shiftwidth=4
 " search 
 set ignorecase
 set smartcase
+set hlsearch
 
 "backspace
 set backspace=indent,eol,start
