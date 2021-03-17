@@ -2,6 +2,7 @@ syntax on
 set number
 set title
 set fenc=utf-8
+set belloff=all
 
 " バックアップファイルを作らない
 set nobackup
