@@ -1,3 +1,4 @@
+source /usr/lib/git-core/git-sh-prompt
 export PS1='\[\e[01;35m\]$(__git_ps1)\[\e[01;32m\] \w \[\e[01;34m\]\$\[\e[00m\]'
 
 alias ls='ls --color=auto -F'
@@ -14,9 +15,5 @@ alias cp='cp -i'
 alias aizu='ssh -Y s1260138@sshgate.u-aizu.ac.jp'
 alias aidu='sftp -r s1260138@sshgate.u-aizu.ac.jp'
 alias pbcopy='xsel --clipboard --input'
-alias clip='clip.exe'
-alias open='explorer.exe'
 
 alias g++='g++ -std=c++17'
-
-alias oj-bundle='\oj-bundle -I ~/Competition/library'
