@@ -24,6 +24,7 @@ set hlsearch
 
 "backspace
 set backspace=indent,eol,start
+noremap! <C-?> <C-h>
 
 " 全角スペースの背景を白に変更
 autocmd Colorscheme * highlight FullWidthSpace ctermbg=white

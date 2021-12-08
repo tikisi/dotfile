@@ -1,11 +1,24 @@
-source /usr/lib/git-core/git-sh-prompt
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+if [ -f /usr/lib/git-core/git-sh-prompt ]; then
+    . /usr/lib/git-core/git-sh-prompt
+fi
+
 export PS1='\[\e[01;35m\]$(__git_ps1)\[\e[01;32m\] \w \[\e[01;34m\]\$\[\e[00m\]'
+
+export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+#export LANG=C
 
 # stop Ctrl-S
 if [[ -t 0 ]]; then
     stty stop undef
     stty start undef
 fi
+
+complete -cf sudo
 
 alias ls='ls --color=auto -F'
 alias ll='ls -l'                              # long list
@@ -24,18 +37,9 @@ alias pbcopy='xsel --clipboard --input'
 
 alias g++='g++ -std=c++17'
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/tikisi/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/tikisi/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/tikisi/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/tikisi/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+alias getDate='date +%m-%d'
+alias getDateTime='date +%m-%d-%H_%M'
 
+export PATH="$PATH:/usr/local/texlive/2021/bin/x86_64-linux"
+export MANPATH="$MANPATH:/usr/local/texlive/2021/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:/usr/local/texlive/2021/texmf-dist/doc/info"
