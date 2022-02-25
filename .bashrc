@@ -39,7 +39,3 @@ alias g++='g++ -std=c++17'
 
 alias getDate='date +%m-%d'
 alias getDateTime='date +%m-%d-%H_%M'
-
-export PATH="$PATH:/usr/local/texlive/2021/bin/x86_64-linux"
-export MANPATH="$MANPATH:/usr/local/texlive/2021/texmf-dist/doc/man"
-export INFOPATH="$INFOPATH:/usr/local/texlive/2021/texmf-dist/doc/info"
