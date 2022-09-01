@@ -24,15 +24,16 @@ alias ls='ls --color=auto -F'
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls'
+alias s='ls'
 alias ks='ls'
 alias sl='ls'
+
+alias d='cd'
 
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
-alias aizu='ssh -Y s1260138@sshgate.u-aizu.ac.jp'
-alias aidu='sftp -r s1260138@sshgate.u-aizu.ac.jp'
 alias pbcopy='xsel --clipboard --input'
 
 alias g++='g++ -std=c++17'
