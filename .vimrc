@@ -9,8 +9,6 @@ set noswapfile
 
 " 編集中に変更があったら再読み込み
 set autoread
-" カーソルの行をハイライト
-set cursorline
 
 " tab系
 set smartindent
