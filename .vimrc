@@ -27,3 +27,15 @@ set backspace=indent,eol,start
 autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
 autocmd VimEnter * match FullWidthSpace /　/
 colorscheme desert
+
+" Makefile
+let _curfile=expand("%:r")
+if _curfile == 'Makefile'
+  set noexpandtab
+endif
+
+" add filename status
+set laststatus=2
+set statusline=%F
+colorscheme elflord
+highlight statusline   term=NONE cterm=NONE guifg=red ctermfg=lightblue ctermbg=black
