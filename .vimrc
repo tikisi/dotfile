@@ -4,6 +4,9 @@ set title
 set fenc=utf-8
 set belloff=all
 
+" ファイルの末尾に改行を加えない
+set nofixeol
+
 " バックアップファイルを作らない
 set nobackup
 set noswapfile
