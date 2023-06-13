@@ -20,5 +20,3 @@ alias open='explorer.exe'
 alias g++='g++ -std=c++17'
 
 export DISPLAY=$(ipconfig.exe | grep IPv4 | tail -1 | awk '{print $NF}' | awk 'sub(/\r$/,"")'):0
-
-alias oj-bundle='\oj-bundle -I ~/Competition/library'
