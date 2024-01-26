@@ -11,8 +11,6 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
-alias aizu='ssh -Y s1260138@sshgate.u-aizu.ac.jp'
-alias aidu='sftp -r s1260138@sshgate.u-aizu.ac.jp'
 alias pbcopy='xsel --clipboard --input'
 alias clip='clip.exe'
 alias open='explorer.exe'
