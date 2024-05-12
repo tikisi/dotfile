@@ -25,7 +25,7 @@ set ignorecase
 set smartcase
 set hlsearch
 
-"backspace
+"backspaceでの文字削除に対応
 set backspace=indent,eol,start
 noremap! <C-?> <C-h>
 
@@ -34,7 +34,7 @@ autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
 autocmd VimEnter * match FullWidthSpace /　/
 colorscheme desert
 
-" Makefile
+" Makefile時に(tabstop=4)を停止
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
   set noexpandtab
