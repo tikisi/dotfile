@@ -27,8 +27,21 @@ set hlsearch
 
 "backspace
 set backspace=indent,eol,start
+noremap! <C-?> <C-h>
 
 " 全角スペースの背景を白に変更
 autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
 autocmd VimEnter * match FullWidthSpace /　/
 colorscheme desert
+
+" Makefile
+let _curfile=expand("%:r")
+if _curfile == 'Makefile'
+  set noexpandtab
+endif
+
+" add filename status
+set laststatus=2
+set statusline=%F
+colorscheme elflord
+highlight statusline   term=NONE cterm=NONE guifg=red ctermfg=lightblue ctermbg=black
