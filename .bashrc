@@ -24,9 +24,8 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
-alias pbcopy='xsel --clipboard --input'
-alias clip='clip.exe'
 alias open='explorer.exe'
+alias pbcopy='iconv -f utf8 -t sjis | clip.exe'
 
 export DISPLAY=$(ipconfig.exe | iconv -f sjis -t utf8 | grep IPv4 | tail -1 | awk '{print $NF}' | awk 'sub(/\r$/,"")'):0
 
