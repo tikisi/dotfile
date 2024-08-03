@@ -1,4 +1,4 @@
-syntax on
+synta on
 set number
 set title
 set fenc=utf-8
@@ -21,9 +21,9 @@ set tabstop=4
 set shiftwidth=4
 
 " search 
-set ignorecase
-set smartcase
-set hlsearch
+set incsearch   " インクリメンタルサーチ, 1文字入力ごとに検索を行う
+set ignorecase  " 検索パターンに大文字小文字を区別しない
+set hlsearch    " 検索結果をハイライト
 
 "backspaceでの文字削除に対応
 set backspace=indent,eol,start
@@ -32,7 +32,6 @@ noremap! <C-?> <C-h>
 " 全角スペースの背景を白に変更
 autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
 autocmd VimEnter * match FullWidthSpace /　/
-colorscheme desert
 
 " Makefile時に(tabstop=4)を停止
 let _curfile=expand("%:r")
@@ -40,8 +39,11 @@ if _curfile == 'Makefile'
   set noexpandtab
 endif
 
+colorscheme elflord
+
 " add filename status
 set laststatus=2
 set statusline=%F
-colorscheme elflord
-highlight statusline   term=NONE cterm=NONE guifg=red ctermfg=lightblue ctermbg=black
+highlight StatusLine term=NONE cterm=NONE guifg=red ctermfg=lightblue ctermbg=black " アクティブなウィンドウのステータスライン
+highlight StatusLineNC term=NONE cterm=NONE guifg=red ctermfg=white ctermbg=black " 非アクティブなウィンドウのステータスライン
+
