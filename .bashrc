@@ -10,6 +10,14 @@ export PS1='\[\e[01;35m\]$(__git_ps1)\[\e[01;32m\] \w \[\e[01;34m\]\$\[\e[00m\]'
 
 #export LANG=C
 
+# stop Ctrl-S
+if [[ -t 0 ]]; then
+    stty stop undef
+    stty start undef
+fi
+
+complete -cf sudo
+
 alias ls='ls --color=auto -F'
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
@@ -23,6 +31,8 @@ alias d='cd'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
+
+alias pbcopy='xsel --clipboard --input'
 
 alias getDate='date +%m-%d'
 alias getDateTime='date +%m-%d-%H_%M'

@@ -14,6 +14,9 @@ set noswapfile
 " 編集中に変更があったら再読み込み
 set autoread
 
+" clipboard
+set clipboard+=unnamed
+
 " tab系
 set smartindent
 set expandtab
