@@ -116,7 +116,7 @@ function safe_rm() {
                 # ディレクトリが500MBを超える場合は完全に削除
                 if [ "$DIR_SIZE" -gt "$SIZE_LIMIT" ]; then
                     #echo "Directory '$file' is larger than 500MB, deleting permanently."
-                    /bin/rm -r "$file"
+                    /bin/rm -rf "$file"
                 else
                     # 500MB以下ならゴミ箱に移動
                     #echo "Directory '$file' is smaller than 500MB, moving to trash."
@@ -141,7 +141,7 @@ function safe_rm() {
             # ファイルが500MBを超える場合は完全に削除
             if [ "$FILE_SIZE" -gt "$SIZE_LIMIT" ]; then
                 #echo "File '$file' is larger than 500MB, deleting permanently."
-                /bin/rm "$file"
+                /bin/rm -f "$file"
             else
                 # 500MB以下ならゴミ箱に移動
                 #echo "File '$file' is smaller than 500MB, moving to trash."
