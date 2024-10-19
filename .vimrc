@@ -15,7 +15,7 @@ set noswapfile
 set autoread
 
 " clipboard
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 " tab系
 set smartindent
