@@ -30,16 +30,14 @@ set backspace=indent,eol,start
 noremap! <C-?> <C-h>
 
 " 全角スペースの背景を白に変更
-autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
-autocmd VimEnter * match FullWidthSpace /　/
+" autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
+" autocmd VimEnter * match FullWidthSpace /　/
 
 " Makefile時に(tabstop=4)を停止
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
   set noexpandtab
 endif
-
-colorscheme elflord
 
 " add filename status
 set laststatus=2

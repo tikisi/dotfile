@@ -1,5 +1,5 @@
 #!/bin/bash
-
+eval "$(/opt/homebrew/bin/brew shellenv)"
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 if [ -f /usr/lib/git-core/git-sh-prompt ]; then
