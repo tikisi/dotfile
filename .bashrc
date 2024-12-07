@@ -1,41 +1,28 @@
-# git-promptの読み込み
-source ~/.zsh/git-prompt.sh
+#!/bin/bash
 
-# git-completionの読み込み
-fpath=(~/.zsh $fpath)
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-autoload -Uz compinit && compinit
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
-# プロンプトのオプション表示設定
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUPSTREAM=auto
+if [ -f /usr/lib/git-core/git-sh-prompt ]; then
+    . /usr/lib/git-core/git-sh-prompt
+fi
 
-#export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\n\$ '
-#export PS1='\[\e[01;35m\]$(__git_ps1)\[\e[01;32m\] \w \[\e[01;34m\]\$\[\e[00m\]'
-setopt PROMPT_SUBST ; PS1='%F{magenda}(__git_ps1 " (%s)")"%f %F{green}%~%f %F{cyan}$%f '
+export PS1='\[\e[01;35m\]$(__git_ps1)\[\e[01;32m\] \w \[\e[01;34m\]\$\[\e[00m\]'
 
-alias ls='ls -FG'
+#export LANG=C
+
+alias ls='ls --color=auto -F'
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls'
+alias s='ls'
 alias ks='ls'
 alias sl='ls'
+
+alias d='cd'
 
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
-function opencmd()
-{
-	cmd 2>&1 | start $1
-}
-
-alias open='opencmd'
-alias home='cd /c/Users/faohf/Documents'
-
-alias aizu='ssh -Y s1260138@sshgate.u-aizu.ac.jp'
-alias aidu='sftp -r s1260138@sshgate.u-aizu.ac.jp'
-export DISPLAY=localhost:0.0
-
+alias getDate='date +%m-%d'
+alias getDateTime='date +%m-%d-%H_%M'
