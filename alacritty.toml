@@ -1,9 +1,34 @@
 [terminal.shell]
-program = "/bin/bash"
+#program = "/usr/local/bin/bash"
+program = "/bin/zsh"
 args = ["-l"]
 
 [font]
-size = 12.5
+normal = { family = "Menlo", style = "Regular" }
+size = 12.7
 
 [window]
-opacity = 0.93
+opacity = 0.90
+
+# ====================== HINTS ======================
+[hints]
+
+# Define the keys used for hint labels
+alphabet = "jfkdls;ahgurieowpq"  # Default: "jfkdls;ahgurieowpq"
+
+[[hints.enabled]]
+#  command = "xdg-open" # On Linux/BSD
+command = "open" # On macOS
+# command = { program = "cmd", args = [ "/c", "start", "" ] } # On Windows
+hyperlinks = true
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "U", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
+

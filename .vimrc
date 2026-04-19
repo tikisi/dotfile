@@ -1,4 +1,4 @@
-synta on
+syntax on
 set number
 set title
 set fenc=utf-8
@@ -17,6 +17,7 @@ set autoread
 " clipboard
 set clipboard&
 set clipboard+=unnamed
+set paste
 
 " tab系
 set smartindent
