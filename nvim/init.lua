@@ -1,6 +1,6 @@
 -- lazy.nvim bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git", "clone", "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
@@ -10,84 +10,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {
-    "rebelot/kanagawa.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("kanagawa").setup({
-        transparent = true,
-      })
-      vim.cmd.colorscheme("kanagawa")
-    end,
-  },
-  {
-    "saghen/blink.cmp",
-    version = "*",
-    opts = {
-      keymap = { preset = "default" },
-      sources = {
-        default = { "lsp", "path", "buffer" },
-      },
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    branch = "master",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = { "go", "gomod", "gosum", "lua", "vim", "vimdoc" },
-        highlight = { enable = true },
-        indent = { enable = true },
-      })
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      vim.lsp.config("gopls", {
-        capabilities = require("blink.cmp").get_lsp_capabilities(),
-      })
-      vim.lsp.enable("gopls")
-    end,
-  },
-  {
-    "echasnovski/mini.icons",
-    lazy = false,
-    config = function()
-      require("mini.icons").setup()
-    end,
-  },
-  {
-    "stevearc/oil.nvim",
-    lazy = false,
-    dependencies = { "echasnovski/mini.icons" },
-    opts = {
-      view_options = {
-        show_hidden = true,
-      },
-    },
-    keys = {
-      { "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
-    },
-  },
-  {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-    init = function()
-      vim.g.tmux_navigator_no_mappings = 1
-    end,
-    config = function()
-      local dirs = { h = "Left", j = "Down", k = "Up", l = "Right" }
-      for key, dir in pairs(dirs) do
-        local cmd = "<cmd>TmuxNavigate" .. dir .. "<cr>"
-        vim.keymap.set({ "n", "v" }, "<C-q>" .. key, cmd, { silent = true })
-        vim.keymap.set("i", "<C-q>" .. key, "<Esc>" .. cmd, { silent = true })
-        vim.keymap.set("t", "<C-q>" .. key, "<C-\\><C-n>" .. cmd, { silent = true })
-      end
-    end,
-  },
+  { import = "plugins" },
 })
 
 vim.opt.number = true
@@ -117,10 +40,18 @@ vim.opt.shiftwidth = 4
 vim.opt.incsearch = true   -- インクリメンタルサーチ, 1文字入力ごとに検索を行う
 vim.opt.ignorecase = true  -- 検索パターンに大文字小文字を区別しない
 vim.opt.hlsearch = true    -- 検索結果をハイライト
+-- Escで検索ハイライトを消す
+vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR><Esc>")
 
 -- backspaceでの文字削除に対応
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.keymap.set({ "!", "i", "c" }, "<C-?>", "<C-h>")
+
+-- ウィンドウリサイズの単位を大きくする
+vim.keymap.set("n", "<C-w>+", "5<C-w>+")
+vim.keymap.set("n", "<C-w>-", "5<C-w>-")
+vim.keymap.set("n", "<C-w>>", "5<C-w>>")
+vim.keymap.set("n", "<C-w><", "5<C-w><")
 
 -- Makefile時にexpandtabを停止
 vim.api.nvim_create_autocmd("FileType", {
@@ -129,6 +60,17 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = false
   end,
 })
+
+-- wildmode (nvim内のコマンド補完周り)
+vim.o.wildmenu = true
+vim.o.wildmode = 'full'
+vim.o.wildoptions = 'pum'   -- ポップアップメニュー（Neovim 0.9+）
+vim.o.wildignorecase = true -- 大文字小文字を区別しない
+vim.opt.wildignore = {      -- バックアップファイルを候補から除外
+    '*.pyc',
+    '*/node_modules/*',
+    '*/.git/*' 
+}
 
 -- add filename status
 vim.opt.laststatus = 2
