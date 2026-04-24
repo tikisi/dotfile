@@ -29,6 +29,8 @@ set shiftwidth=4
 set incsearch   " インクリメンタルサーチ, 1文字入力ごとに検索を行う
 set ignorecase  " 検索パターンに大文字小文字を区別しない
 set hlsearch    " 検索結果をハイライト
+" Escの2回押しで検索ハイライトを消す
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 "backspaceでの文字削除に対応
 set backspace=indent,eol,start
