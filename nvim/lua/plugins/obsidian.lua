@@ -43,6 +43,9 @@ return {
     ui = {
       enable = false,
     },
+    sync = {
+      enabled = true,
+    },
     picker = {
       name = "telescope.nvim",
     },
