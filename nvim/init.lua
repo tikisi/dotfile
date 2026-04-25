@@ -25,7 +25,11 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 
 -- 編集中に変更があったら再読み込み
-vim.opt.autoread = true
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter" }, {
+  pattern = "*",
+  command = "checktime",
+})
 
 -- clipboard
 vim.opt.clipboard = "unnamedplus"
