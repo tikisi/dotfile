@@ -6,8 +6,11 @@ return {
     view_options = {
       show_hidden = true,
     },
+    preview_win = {
+      update_on_cursor_moved = true,
+    },
   },
   keys = {
-    { "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
+    { "-", "<cmd>Oil --preview<cr>", desc = "Open parent directory with preview" },
   },
 }
