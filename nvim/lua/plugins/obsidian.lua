@@ -11,7 +11,7 @@ return {
   keys = {
     { "<leader>on", "<cmd>Obsidian new<cr>", desc = "Obsidian: new note" },
     { "gf", function()
-        if require("obsidian").util.cursor_on_markdown_link() then
+        if require("obsidian.api").cursor_link() then
           return "<cmd>Obsidian follow_link<cr>"
         end
         return "gf"
