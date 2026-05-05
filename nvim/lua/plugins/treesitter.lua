@@ -20,7 +20,8 @@ return {
         "bash",
         "python",
         "javascript",
-        "typescript"
+        "typescript",
+        "latex"
     }
 
     require("nvim-treesitter").install(parsers)
