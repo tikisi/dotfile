@@ -40,6 +40,9 @@ return {
     attachments = {
       folder = "assets",
     },
+    checkbox = {
+      create_new = false,
+    },
     ui = {
       enable = false,
     },
