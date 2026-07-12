@@ -25,6 +25,8 @@ return {
         path = "~/Obsidian/main",
       },
     },
+    notes_subdir = "inbox",
+    new_notes_location = "notes_subdir",
     completion = {
       nvim_cmp = false,
       blink = true,
