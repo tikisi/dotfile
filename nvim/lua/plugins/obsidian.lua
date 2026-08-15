@@ -4,8 +4,8 @@ return {
   lazy = false,
   ft = "markdown",
   event = {
-    "BufReadPre " .. vim.fn.expand("~") .. "/Obsidian/main/*.md",
-    "BufNewFile " .. vim.fn.expand("~") .. "/Obsidian/main/*.md",
+    "BufReadPre " .. vim.fn.expand("~") .. "/obsidian/*.md",
+    "BufNewFile " .. vim.fn.expand("~") .. "/obsidian/*.md",
   },
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
@@ -21,8 +21,8 @@ return {
     legacy_commands = false,
     workspaces = {
       {
-        name = "main",
-        path = "~/Obsidian/main",
+        name = "obsidian",
+        path = "~/obsidian",
       },
     },
     notes_subdir = "inbox",
